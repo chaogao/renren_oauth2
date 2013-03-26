@@ -17,5 +17,11 @@ module RenRenOAuth2
 			params[:redirect_uri] = RenRenOAuth2::Config.redirect_uri unless params[:redirect_uri]
 			super
 		end
+
+		def get_token(params, access_token_opts = {})
+			params = params.merge({:grant_type => 'authorization_code'})
+			access_token_opts = access_token_opts.merge({:param_name => 'access_token'})
+			super
+		end
 	end
 end
