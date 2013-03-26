@@ -1,5 +1,8 @@
 class Hola
-	def say
-		puts "hello world"
+	def self.say(language = :english)
+		translator = Translator.new(language)
+		translator.say
 	end
 end
+
+require "hola/translator"
